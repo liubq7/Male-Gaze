@@ -21,7 +21,7 @@ function preload() {
   eyeImg = loadImage("../assets/maleview/eye.gif");
   instructionImg = loadImage("../assets/maleview/instruction.png");
   whisper = loadSound("../assets/maleview/whisper.mp3");
-  sequenceAnimation = loadAnimation("./images/frames/1.png", "./images/frames/36.png");
+  sequenceAnimation = loadAnimation("../assets/maleview/frames/1.png", "../assets/maleview/frames/36.png");
 
 }
 
