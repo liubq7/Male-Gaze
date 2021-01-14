@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -19,17 +18,15 @@
     <title>Male Gaze</title>
     <link rel="stylesheet" href="./css/question.css" />
   </head>
+  
   <body>
     <iframe src="p5/bg.html" name="iframe1" id="iframe1"></iframe>
 
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 center-block">
-          <img src="./images/question/text.PNG" id="text" />
+          <img src="./assets/question/text.PNG" id="text" />
         </div>
-      </div>
-
-      <div class="row">
         <div class="col-12 center-block">
           <input
             type="text"
@@ -37,31 +34,21 @@
             placeholder="Write a negative word here"
           />
         </div>
-      </div>
-      <div class="row">
-        <!-- <p id="errorText" style="display: none;">Please write a word.</p> -->
         <div class="col-12 center-block">
           <img
-            src="images/question/error.png"
+            src="./assets/question/error.png"
             alt="Please enter a word"
             id="errorText"
             style="display: none"
           />
         </div>
-      </div>
-
-      <div class="row">
         <div class="col-12 center-block">
-          <button id="nextBtn">
-            <img src="./images/question/nextBtn.GIF" height="80px" alt="Next" />
-          </button>
+          <img id="next" src="./assets/question/nextBtn.GIF" alt="Next" />
         </div>
-      </div>
     </div>
 
-    <!-- Optional JavaScript -->
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="p5_eye/webgazer.js" type="text/javascript"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

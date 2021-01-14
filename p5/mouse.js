@@ -112,8 +112,6 @@ function gifControl() {
 function draw() {
   clear();
 
-
-  // animation(sequenceAnimation, window.innerWidth / 2, window.innerHeight / 2-30, (window.innerHeight) * 730 / 1712, window.innerHeight); // 3595
   animation(sequenceAnimation, window.innerWidth / 2, window.innerHeight / 2-30, (window.innerHeight-100)* 730 / 1712, window.innerHeight-100); 
   sequenceAnimation.looping = false;
   sequenceAnimation.frameDelay = 6;
@@ -141,4 +139,3 @@ function mousePressed() {
     whisper.setVolume(0.02, 2, 0);//0.005,10,0
   }, 1000);
 }
-

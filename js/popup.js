@@ -1,7 +1,7 @@
 var goMouse = document.getElementById("goMouse");
 if (goMouse){
   goMouse.onclick = function(){
-    location.href="./maleView.html"
+    location.href="./maleview.html"
     // hidePopBox();
     window.localStorage.setItem('look',"./images/selfie/look-black.gif");
     window.localStorage.setItem('camera',"off");

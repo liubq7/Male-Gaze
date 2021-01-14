@@ -12,13 +12,13 @@ body,html{
 
 
 #nextBtn:hover {
-    background-image: url(../images/male/nextBtn_click.png);
+    background-image: url(../assets/maleview/nextHover.png);
     background-size: cover;
 }
 
 
 #nextBtn{
-    background-image: url('../images/male/nextBtn.png');
+    background-image: url(../assets/maleview/next.png);
     background-repeat: no-repeat;
     background-size: cover;
     height:80px;
@@ -33,7 +33,6 @@ body,html{
     cursor:pointer;
 }
 
-
 iframe{
     position: absolute;
     border:0;
@@ -42,13 +41,10 @@ iframe{
     height: 100%;
 }
 
-
 .eyes{
     z-index: 1;
 }
 
-
-  
 #loading {
     display: block;
     position: absolute;
