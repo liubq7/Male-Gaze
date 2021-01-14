@@ -1,0 +1,24 @@
+body {
+  background-color: #fef2dc;
+  background-image: url("../assets/launch/bg.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#quote {
+  position: relative;
+  top: 20vh;
+  width: 70vw;
+  display: block;
+  margin: 0 auto;
+}
+
+#start {
+  height: 9vh;
+  margin: 0 auto;
+  position: relative;
+  top: 40vh;
+  display: block;
+  cursor: pointer;
+}
