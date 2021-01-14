@@ -9,7 +9,6 @@ let trace; //mouse trace
 
 let changeTime = 0;
 let whisper;
-let quote;
 
 var sequenceAnimation;
 
@@ -24,18 +23,10 @@ var prediction
 
 
 function preload() {
-  // eyeImg = loadImage("images/eye4.GIF");//https://media.giphy.com/media/jrTbLp6QQqYAz4LG6V/giphy.gif
-  // instructionImg = loadImage("images/instruction2_black2.png");
-  // whisper = loadSound("./sound/whisper.mp3");
-  eyeImg = loadImage("https://media.giphy.com/media/0LU6KkazoNmzu2Gve5/giphy.gif");//https://media.giphy.com/media/jrTbLp6QQqYAz4LG6V/giphy.gif
-  instructionImg = loadImage("https://raw.githubusercontent.com/tingying-he/creative-design/master/p5/images/Instruction2_black2.png");
-  whisper = loadSound("./sound/whisper.mp3");
-
-  sequenceAnimation = loadAnimation("./images/frames/1.png", "./images/frames/36.png");
-
-  quote = loadSound("./sound/quote.mp3");
-
-  // prevData = await localforage.getItem('webgazerGlobalData');
+  eyeImg = loadImage("../assets/maleview/eye.gif");
+  instructionImg = loadImage("../assets/maleview/eye_instruction.png");
+  whisper = loadSound("../assets/maleview/whisper.mp3");
+  sequenceAnimation = loadAnimation("../assets/maleview/frames/1.png", "../assets/maleview/frames/36.png");
 }
 
 // Setup
@@ -58,9 +49,7 @@ function setup() {
 
 //   whisper.play();
   whisper.loop();
-  whisper.setVolume(0.02);
-  quote.loop();
-  quote.setVolume(0.5);
+  whisper.setVolume(0.005);
 
   // Create Eyes
   for (i = 0; i < numEyes; i++) {
