@@ -1,8 +1,8 @@
-body {
-  background-color: #fef2dc;
+html {
+  background-color: #fef2dc; 
   background-image: url("../assets/launch/bg.gif");
+  height: 100vh;
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
 }
 
@@ -21,4 +21,43 @@ body {
   top: 30vh;
   display: block;
   cursor: pointer;
+}
+
+#mode {
+  position: relative;
+  top: 25vh;
+  display: block;
+  text-align: center;
+  font-family: 'Jua', sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+  color: #fa79b8;
+}
+
+input[type='radio']:after {
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #5950cf;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
 }

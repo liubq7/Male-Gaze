@@ -3,18 +3,15 @@ btn.onclick = function () {
   location.href = "./question.html";
 };
 
+// $('#result').load('ajax/test.html #container');
+
 // testBtn.onclick= function(){
 //   console.log("testBtn is clicked");
 //   location.href="./train.html";
 
 // }
 
-// function showPopBox(){
-//   document.getElementById('popBox-demo').style.display = 'block';
-// }
-// function hidePopBox(){
-//   document.getElementById('popBox-demo').style.display = 'none';
-// }
+
 
 // var hover=document.getElementById('hover');
 // var video = document.getElementById('bodyShape');

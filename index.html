@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Male Gaze</title>
     <link rel="stylesheet" href="./css/launch.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <img id="quote" src="./assets/launch/quote.png" />
+
+    <div id="mode">
+      <input type="radio" id="gaze" name="mode" value="gaze" checked />
+      <label for="gaze">Gaze mode</label>
+      <input type="radio" id="mouse" name="mode" value="mouse" />
+      <label for="mouse">Mouse mode</label>
+    </div>
 
     <img
       onclick="javascript:window.location.href='./popup.html'"
