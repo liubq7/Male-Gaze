@@ -32,6 +32,15 @@ function preload() {
 // Setup
 function setup() {
   frameRate(15);
+
+  //  @inproceedings{papoutsaki2016webgazer,
+  //  author = {Alexandra Papoutsaki and Patsorn Sangkloy and James Laskey and Nediyana Daskalova and Jeff Huang and James Hays},
+  //  title = {WebGazer: Scalable Webcam Eye Tracking Using User Interactions},
+  //  booktitle = {Proceedings of the 25th International Joint Conference on Artificial Intelligence (IJCAI)},
+  //  pages = {3839--3845},
+  //  year = {2016},
+  //  organization={AAAI}
+  // }
   webgazer.begin();
   window.saveDataAcrossSessions = true;
   webgazer.setGazeListener(function(data, elapsedTime) {
@@ -111,7 +120,7 @@ function Eye(x, y) {
     push();
     translate(this.pos.x, this.pos.y);
     imageMode(CENTER);
-    image(eyeImg, this.size, this.size, this.width, this.width);
+    image(eyeImg, this.size, this.size, 60, 50);
     pop();
   };
 }
@@ -135,8 +144,8 @@ function draw() {
   gifControl();
   
   image(trace, 0, 0);
-  trace.stroke(90, 81, 210, 100); // fix the stroke style 47, 46, 46, 80, ----173, 113, 239----233, 190, 221
-  trace.strokeWeight(6);
+  trace.stroke(255, 39, 143, 80); // fix the stroke style 47, 46, 46, 80, ----173, 113, 239----233, 190, 221
+  trace.strokeWeight(12);
   // trace.line(mouseX, mouseY, pmouseX, pmouseY);
   trace.line(xprediction,yprediction,xprediction,yprediction);
   // console.log("xprediction:"+xprediction);

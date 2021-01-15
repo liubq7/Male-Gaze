@@ -1,18 +1,12 @@
 var btn = document.getElementById("nextBtn");
-  btn.onclick = function () {
-    location.href = "./question.html";
-  };
-
-//   window.onload=function(){
-//     showPopBox();
-//   }
-// }
-
+btn.onclick = function () {
+  location.href = "./question.html";
+};
 
 // testBtn.onclick= function(){
 //   console.log("testBtn is clicked");
 //   location.href="./train.html";
-  
+
 // }
 
 // function showPopBox(){
@@ -21,10 +15,6 @@ var btn = document.getElementById("nextBtn");
 // function hidePopBox(){
 //   document.getElementById('popBox-demo').style.display = 'none';
 // }
-
-
-
-
 
 // var hover=document.getElementById('hover');
 // var video = document.getElementById('bodyShape');
@@ -80,6 +70,3 @@ var btn = document.getElementById("nextBtn");
 //      $("#loading").hide();
 //   });
 // });
-
-
-

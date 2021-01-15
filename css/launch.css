@@ -15,10 +15,10 @@ body {
 }
 
 #start {
-  height: 9vh;
+  height: 10vh;
   margin: 0 auto;
   position: relative;
-  top: 40vh;
+  top: 30vh;
   display: block;
   cursor: pointer;
 }

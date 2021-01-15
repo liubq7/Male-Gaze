@@ -48,7 +48,8 @@ function setup() {
   w2 = window.innerWidth / 2 + (window.innerHeight-100) * 730 / 1712 / 2;
 }
 
-//Particle
+// Particle
+// @avalibility: https://wow.techbrood.com/fiddle/33714
 function Eye(x, y) {
   this.x = x;
   this.y = y;
@@ -118,9 +119,9 @@ function draw() {
   gifControl();
   
   image(trace, 0, 0);
-  trace.stroke(90, 81, 210, 100); // fix the stroke style 47, 46, 46, 80, ----173, 113, 239----233, 190, 221
-  trace.strokeWeight(6);
-  trace.line(mouseX, mouseY, pmouseX, pmouseY);
+  trace.stroke(255, 39, 143, 80); // fix the stroke style 47, 46, 46, 80, ----173, 113, 239----233, 190, 221
+  trace.strokeWeight(12);
+  trace.line(mouseX, mouseY, mouseX, mouseY);
   console.log(mouseX);
   imageMode(CENTER);
   image(instructionImg,window.innerWidth / 2,window.innerHeight / 2-30+(window.innerHeight-100)/2,794,80);

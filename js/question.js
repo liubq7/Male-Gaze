@@ -6,11 +6,11 @@ nextBtn.onclick=function(){
     console.log(ipt)
     if(ipt){
         window.localStorage.setItem('val',ipt);
-        location.href="./selfieView.html";
+        location.href="./selfview.html";
         if (camera == "on") {          
-            window.localStorage.setItem('look',"./asstes/selfview/look-camera.gif");
+            window.localStorage.setItem('look',"./assets/selfview/look-camera.gif");
          } else {
-            window.localStorage.setItem('look',"./asstes/selfview/look-black.gif");
+            window.localStorage.setItem('look',"./assets/selfview/look-black.gif");
          }
     }else{
         showError();
@@ -20,7 +20,3 @@ function showError(){
     document.getElementById('errorText').style.display = 'block';
 
 }
-
-
-
-
