@@ -1,9 +1,4 @@
 
-// var btn=document.getElementById('btn');
-// btn.onclick=function(){
-//         location.href="./launch.html"
-   
-// }
 
 
 var video = document.querySelector("#video-camera");
@@ -21,7 +16,7 @@ if(camera == "on")
 }}
 
 
-var val=window.localStorage.getItem('val'),
+var val=window.localStorage.getItem('ipt'),
     p=document.getElementById('word');
     p.innerText=val;
 

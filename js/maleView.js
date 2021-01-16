@@ -1,26 +1,14 @@
-var btn = document.getElementById("nextBtn");
-btn.onclick = function () {
+var mode = localStorage.getItem('mode');
+if (mode === "gaze") {
+  $("#iframe2").attr("src", "./p5/gaze.html");
+}
+
+$("#nextBtn").click(() => {
   location.href = "./question.html";
-};
-
-// $('#result').load('ajax/test.html #container');
-
-// testBtn.onclick= function(){
-//   console.log("testBtn is clicked");
-//   location.href="./train.html";
-
-// }
+})
 
 
 
-// var hover=document.getElementById('hover');
-// var video = document.getElementById('bodyShape');
-// hover.onmouseover=function(){
-// video.play();
-// }
-// hover.onmouseout=function(){
-//         video.pause();
-// }
 
 // function onReady(callback) {
 //   var intervalId = window.setInterval(function() {

@@ -34,7 +34,7 @@ input {
   outline: none;
 }
 
-#next {
+#nextBtn {
   cursor: pointer;
   height: 9vh;
   position: relative;
