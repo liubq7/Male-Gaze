@@ -11,6 +11,25 @@ webgazer
 
 window.saveDataAcrossSessions = true;
 
+introJs()
+  .setOptions({
+    steps: [
+      {
+        title: "Experience with your gazes!",
+        intro: "Camera permission is required. However, the video steam runs locally, we won't save any information.",
+      },
+      {
+        element: document.getElementById("camera"),
+        intro: "Make sure your face within the box and it's green!",
+      },
+    ],
+    tooltipClass: 'customTooltip'
+  })
+  .start();
+
+
+
+
 var eyesNum = 0;
 var nextBtn = document.getElementById("next");
 

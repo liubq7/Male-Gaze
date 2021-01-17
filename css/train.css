@@ -73,3 +73,29 @@ body {
   top: 55vh;
   right: 17vw;
 }
+
+#camera {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 320px;
+  height: 240px;
+}
+
+.customTooltip * {
+  color: #4a4a4a;
+  font-size: 18px;
+}
+
+.introjs-tooltip {
+  width: 30vw;
+}
+
+.introjs-button {
+  background-color: pink;
+  padding: 3px;
+}
+
+.customTooltip .introjs-tooltip-title {
+  color: #0a41c9;
+}

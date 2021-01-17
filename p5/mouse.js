@@ -2,13 +2,12 @@ var reset = true;
 
 /* eyes */
 var eyes = [];
-var numEyes = 100;
+var eyeNum = 100;
 let eyeImg;
 let instructionImg;
 
 let trace; //mouse trace
 
-let changeTime = 0;
 let whisper;
 
 var sequenceAnimation;
@@ -36,13 +35,13 @@ function setup() {
   whisper.setVolume(0.005);
 
   // Create Eyes
-  for (i = 0; i < numEyes; i++) {
+  for (i = 0; i < eyeNum; i++) {
     var x = random(width);
     var y = random(height);
     eyes[i] = new Eye(x, y);
   }
 
-  trace = createGraphics(window.innerWidth, window.innerHeight); //to be fixed
+  trace = createGraphics(window.innerWidth, window.innerHeight); 
 
   w1 = window.innerWidth / 2 - (window.innerHeight-100) * 730 / 1712 / 2;
   w2 = window.innerWidth / 2 + (window.innerHeight-100) * 730 / 1712 / 2;
@@ -122,12 +121,12 @@ function draw() {
   trace.stroke(255, 39, 143, 80); // fix the stroke style 47, 46, 46, 80, ----173, 113, 239----233, 190, 221
   trace.strokeWeight(12);
   trace.line(mouseX, mouseY, mouseX, mouseY);
-  console.log(mouseX);
+
   imageMode(CENTER);
   image(instructionImg,window.innerWidth / 2,window.innerHeight / 2-30+(window.innerHeight-100)/2,794,80);
   
   var target = createVector(mouseX, mouseY);
-  for (i = 0; i < numEyes; i++) {
+  for (i = 0; i < eyeNum; i++) {
     eyes[i].seek(target);
     eyes[i].display();
     eyes[i].update();

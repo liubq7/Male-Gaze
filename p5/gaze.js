@@ -2,24 +2,25 @@ var reset = true;
 
 /* eyes */
 var eyes = [];
-var numEyes = 100;
+var eyeNum = 100;
 let eyeImg;
 
-let trace; //mouse trace
+var trace; //mouse trace
 
-let changeTime = 0;
-let whisper;
+var whisper;
 
 var sequenceAnimation;
 
-let w1;
-let w2;
+var w1;
+var w2;
 
 var xprediction;
 var yprediction;
 
-let prevData;
-var prediction
+var isTrained = false;
+var bubbles = [];
+var bubbleNum = 7;
+var bubbleLeft;
 
 
 function preload() {
@@ -29,7 +30,7 @@ function preload() {
   sequenceAnimation = loadAnimation("../assets/maleview/frames/1.png", "../assets/maleview/frames/36.png");
 }
 
-// Setup
+
 function setup() {
   frameRate(15);
 
@@ -41,39 +42,47 @@ function setup() {
   //  year = {2016},
   //  organization={AAAI}
   // }
-  webgazer.begin();
-  window.saveDataAcrossSessions = true;
+  // webgazer.begin();
+  // window.saveDataAcrossSessions = true;
   webgazer.setGazeListener(function(data, elapsedTime) {
     if (data == null) {
         return;
     }
     xprediction = data.x; //these x coordinates are relative to the viewport
     yprediction = data.y; //these y coordinates are relative to the viewport
-    // console.log(xprediction);
-    // console.log(elapsedTime); //elapsed time is based on time since begin was called
 }).begin();
  
   createCanvas(window.innerWidth, window.innerHeight);
   colorMode(RGB, 255, 255, 255, 1);
 
-//   whisper.play();
+  // whisper.play();
   whisper.loop();
   whisper.setVolume(0.005);
 
   // Create Eyes
-  for (i = 0; i < numEyes; i++) {
+  for (i = 0; i < eyeNum; i++) {
     var x = random(width);
     var y = random(height);
     eyes[i] = new Eye(x, y);
   }
 
-  trace = createGraphics(window.innerWidth, window.innerHeight); //to be fixed
+  trace = createGraphics(window.innerWidth, window.innerHeight); 
 
   w1 = window.innerWidth / 2 - (window.innerHeight-100) * 730 / 1712 / 2;
   w2 = window.innerWidth / 2 + (window.innerHeight-100) * 730 / 1712 / 2;
+
+  bubbles[0] = new bubble(770, height - 100);
+  bubbles[1] = new bubble(200, 400);
+  bubbles[2] = new bubble(150, height - 100);
+  bubbles[3] = new bubble(500, 100);
+  bubbles[4] = new bubble(width / 2, height / 2);
+  bubbles[5] = new bubble(width - 100, 200);
+  bubbles[6] = new bubble(width - 150, height - 150);
+  bubbleLeft = bubbleNum;
 }
 
-//Particle
+// Particle
+// @avalibility: https://wow.techbrood.com/fiddle/33714
 function Eye(x, y) {
   this.x = x;
   this.y = y;
@@ -120,7 +129,7 @@ function Eye(x, y) {
     push();
     translate(this.pos.x, this.pos.y);
     imageMode(CENTER);
-    image(eyeImg, this.size, this.size, 60, 50);
+    image(eyeImg, this.size, this.size, this.width, this.width);
     pop();
   };
 }
@@ -134,38 +143,68 @@ function gifControl() {
   }
 }
 
-// Update Canvas
+
 function draw() {
   clear();
 
+  if (!bubbleLeft) {
+    gaze();
+  } else {
+    for (i = 0; i < bubbleNum; i++) {
+      bubbles[i].display();
+    }
+  }
+}
+
+// Training bubble
+function bubble(x, y) {
+  this.col = color(89, 80, 207);
+  this.x = x;
+  this.y = y;
+  this.d = 30;
+
+  this.display = function() {
+    fill(this.col);
+    noStroke();
+    ellipse(x, y, this.d, this.d);
+  }
+
+  this.clicked = function() {
+    var distance = dist(mouseX, mouseY, x, y);
+    if (distance < this.d / 2) {
+      this.d = 0;
+      bubbleLeft -= 1;
+    }
+  }
+}
+
+function mousePressed() {
+  if (bubbleLeft) {
+    for (i = 0; i < bubbleNum; i++) {
+      bubbles[i].clicked();
+    }
+  }
+}
+
+function gaze() {
   animation(sequenceAnimation, window.innerWidth / 2, window.innerHeight / 2-30, (window.innerHeight-100)* 730 / 1712, window.innerHeight-100); 
   sequenceAnimation.looping = false;
   sequenceAnimation.frameDelay = 6;
   gifControl();
   
   image(trace, 0, 0);
-  trace.stroke(255, 39, 143, 80); // fix the stroke style 47, 46, 46, 80, ----173, 113, 239----233, 190, 221
+  trace.stroke(255, 39, 143, 80);
   trace.strokeWeight(12);
-  // trace.line(mouseX, mouseY, pmouseX, pmouseY);
   trace.line(xprediction,yprediction,xprediction,yprediction);
-  // console.log("xprediction:"+xprediction);
-  // console.log("mouseX"+mouseX+";"+"pmouseX"+pmouseX);
+
   imageMode(CENTER);
   image(instructionImg,window.innerWidth / 2,window.innerHeight / 2-30+(window.innerHeight-100)/2,794,80);
   
-  var target = createVector(this.xprediction, this.yprediction);//mouseY
-  
-  for (i = 0; i < numEyes; i++) {
+  var target = createVector(this.xprediction, this.yprediction);
+  for (i = 0; i < eyeNum; i++) {
     eyes[i].seek(target);
     eyes[i].display();
     eyes[i].update();
   }
-}
-
-function mousePressed() {
-  whisper.setVolume(0.3, 2, 0);
-  setTimeout(() => {
-    whisper.setVolume(0.02, 2, 0);//0.005,10,0
-  }, 1000);
 }
 

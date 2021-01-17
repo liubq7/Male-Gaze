@@ -10,18 +10,20 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
     <link rel="stylesheet" href="./css/train.css" />
-    <title>Document</title>
+    <title>Male Gaze</title>
   </head>
   <body>
-    <p id="camera">
+    <!-- <p id="camera"> -->
       <!-- Make sure your face is within the box and it’s colored green. -->
-      <img
+      <!-- <img
         src="images/train/Instruction1.png"
         alt="Make sure your face is within the box and it’s colored green."
         style="width: 500px"
       />
-    </p>
+    </p> -->
+    <div id="camera"></div>
 
     <img class="eye" id="p1" src="./images/male/close.gif" alt="" />
     <img class="eye" id="p2" src="./images/male/close.gif" alt="" />
@@ -29,15 +31,15 @@
     <img class="eye" id="p4" src="./images/male/close.gif" alt="" />
     <img class="eye" id="p5" src="./images/male/close.gif" alt="" />
 
-    <p id="guide">
+    <!-- <p id="guide"> -->
       <!-- Click the five eyes above to open them, whist looking at the cursor. -->
-      <img
+      <!-- <img
         src="images/train/Instruction2.png"
         style="width: 1000px"
         alt="Click the five eyes above to open them, whist looking at the cursor."
       />
-    </p>
-
+    </p> -->
+<!-- 
     <div id="form">
       <button
         class="btn btn-dark"
@@ -46,7 +48,7 @@
         style="width: 400px; border-radius: 100px"
       >
         I’ve done
-      </button>
+      </button> -->
     </div>
 
     <script
@@ -64,6 +66,7 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
     <script src="./lib/webgazer.js"></script>
     <script src="./js/train.js"></script>
   </body>
