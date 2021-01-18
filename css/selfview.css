@@ -17,7 +17,7 @@ body {
   padding: 20px;
 }
 
-#video-camera {
+#camera {
   border: 0;
   border-style: none;
   position: fixed;
@@ -31,7 +31,7 @@ body {
   line-height: 100%;
   font-weight: bold;
   color: #ffffff;
-  font-family: 'Jua', sans-serif;
+  font-family: "Jua", sans-serif;
 }
 
 #not {
