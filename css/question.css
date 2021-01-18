@@ -42,7 +42,6 @@ input {
 }
 
 #errorText {
-  color: red;
   width: 17vw;
   position: absolute;
   left: 50%;

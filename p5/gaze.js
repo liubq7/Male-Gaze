@@ -17,7 +17,6 @@ var w2;
 var xprediction;
 var yprediction;
 
-var isTrained = false;
 var bubbles = [];
 var bubbleNum = 7;
 var bubbleLeft;

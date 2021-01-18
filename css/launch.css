@@ -55,7 +55,7 @@ input[type='radio']:checked:after {
   top: -2px;
   left: -1px;
   position: relative;
-  background-color: rgb(89, 80, 207);
+  background-color: #5950cf;
   content: '';
   display: inline-block;
   visibility: visible;

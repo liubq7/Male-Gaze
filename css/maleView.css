@@ -1,63 +1,93 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body,html{
-    width: 100%;
-    height: 100%;
-    background-color:#fef2dc;
+body,
+html {
+  width: 100%;
+  height: 100%;
+  background-color: #fef2dc;
 }
 
 #nextBtn:hover {
-    background-image: url(../assets/maleview/nextHover.png);
-    background-size: cover;
+  background-image: url(../assets/maleview/nextHover.png);
+  background-size: cover;
 }
 
-#nextBtn{
-    background-image: url(../assets/maleview/next.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height:80px;
-    width: 80px;
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
-    z-index: 2;
-    background-color: transparent;
-    border-style: none;
-    outline: none;
-    cursor:pointer;
+#nextBtn {
+  background-image: url(../assets/maleview/next.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  z-index: 2;
+  background-color: transparent;
+  border-style: none;
+  outline: none;
+  cursor: pointer;
 }
 
-iframe{
-    position: absolute;
-    border:0;
-    border-style: none;
-    width: 100%;
-    height: 100%;
+iframe {
+  position: absolute;
+  border: 0;
+  border-style: none;
+  width: 100%;
+  height: 100%;
 }
 
-.eyes{
-    z-index: 1;
+.eyes {
+  z-index: 1;
 }
 
 #loading {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 100vw;
-    height: 100vh;
-    background-color:#fef2dc;
-    background-image: url("https://media.giphy.com/media/0LU6KkazoNmzu2Gve5/giphy.gif");
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fef2dc;
+  background-image: url("https://media.giphy.com/media/0LU6KkazoNmzu2Gve5/giphy.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-/* #camera {
-    width: 320px;
-    height: 240px;
-} */
+#camera {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 320px;
+  height: 240px;
+}
+
+#bubble {
+  position: fixed;
+  top: 380px;
+  left: 180px;
+  width: 40px;
+  height: 40px;
+}
+
+.customTooltip * {
+  color: #4a4a4a;
+  font-size: 18px;
+  font-family: 'Jua', sans-serif;
+}
+
+.introjs-tooltip {
+  width: 35vw;
+}
+
+.introjs-button {
+  padding: 3px;
+}
+
+.customTooltip .introjs-tooltip-title {
+  color: #5950cf;
+}
