@@ -70,13 +70,13 @@ function setup() {
   w1 = window.innerWidth / 2 - (window.innerHeight-100) * 730 / 1712 / 2;
   w2 = window.innerWidth / 2 + (window.innerHeight-100) * 730 / 1712 / 2;
 
-  bubbles[0] = new bubble(770, height - 100);
-  bubbles[1] = new bubble(200, 400);
-  bubbles[2] = new bubble(150, height - 100);
-  bubbles[3] = new bubble(500, 100);
-  bubbles[4] = new bubble(width / 2, height / 2);
-  bubbles[5] = new bubble(width - 100, 200);
-  bubbles[6] = new bubble(width - 150, height - 150);
+  bubbles[0] = new Bubble(770, height - 100);
+  bubbles[1] = new Bubble(200, 400);
+  bubbles[2] = new Bubble(150, height - 100);
+  bubbles[3] = new Bubble(500, 100);
+  bubbles[4] = new Bubble(width / 2, height / 2);
+  bubbles[5] = new Bubble(width - 100, 200);
+  bubbles[6] = new Bubble(width - 150, height - 150);
   bubbleLeft = bubbleNum;
 }
 
@@ -156,7 +156,7 @@ function draw() {
 }
 
 // Training bubble
-function bubble(x, y) {
+function Bubble(x, y) {
   this.col = color(89, 80, 207);
   this.x = x;
   this.y = y;
