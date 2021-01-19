@@ -3,16 +3,17 @@ var reset = true;
 /* eyes */
 var eyes = [];
 var eyeNum = 100;
-let eyeImg;
+var eyeImg;
 
+var instructionImg;
 var trace; //mouse trace
-
-var whisper;
-
 var sequenceAnimation;
 
-var w1;
-var w2;
+var whisper;
+var whistle;
+
+var w;  // width of animation
+var h;  // height of animation
 
 var xprediction;
 var yprediction;
@@ -26,6 +27,7 @@ function preload() {
   eyeImg = loadImage("../assets/maleview/eye.gif");
   instructionImg = loadImage("../assets/maleview/eye_instruction.png");
   whisper = loadSound("../assets/maleview/whisper.mp3");
+  whistle = loadSound("../assets/maleview/whistle.wav");
   sequenceAnimation = loadAnimation("../assets/maleview/frames/1.png", "../assets/maleview/frames/36.png");
 }
 
@@ -54,7 +56,6 @@ function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
   colorMode(RGB, 255, 255, 255, 1);
 
-  // whisper.play();
   whisper.loop();
   whisper.setVolume(0.005);
 
@@ -67,8 +68,8 @@ function setup() {
 
   trace = createGraphics(window.innerWidth, window.innerHeight); 
 
-  w1 = window.innerWidth / 2 - (window.innerHeight-100) * 730 / 1712 / 2;
-  w2 = window.innerWidth / 2 + (window.innerHeight-100) * 730 / 1712 / 2;
+  w = (window.innerHeight-100)* 730 / 1712;
+  h = window.innerHeight-100;
 
   bubbles[0] = new Bubble(770, height - 100);
   bubbles[1] = new Bubble(200, 400);
@@ -87,10 +88,9 @@ function Eye(x, y) {
   this.y = y;
 
   // Properties
-  this.size = random(5, 15);
-  this.maxSpeed = random(10, 15);
-  this.maxForce = random(0.01, 4);
-  this.mass = this.size; //this.size * this.size * PI;
+  this.mass = random(5, 15);
+  this.maxSpeed = random(12, 17);
+  this.maxForce = random(1, 4);
   this.width = random(40, 60);
 
   // Motion
@@ -128,14 +128,13 @@ function Eye(x, y) {
     push();
     translate(this.pos.x, this.pos.y);
     imageMode(CENTER);
-    image(eyeImg, this.size, this.size, this.width, this.width);
+    image(eyeImg, this.mass, this.mass, this.width, this.width);
     pop();
   };
 }
 
 function gifControl() {
-  
-  if (xprediction > w1 && xprediction < w2 && yprediction > 50 && yprediction < window.innerHeight) {
+  if (mouseX > (window.innerWidth - w) / 2 && mouseX < (window.innerWidth + w) / 2 && mouseY > (window.innerHeight - h) / 2 - 30 && mouseY < (window.innerHeight + h) / 2 - 30) {
     sequenceAnimation.play();
   } else {
     sequenceAnimation.stop();
@@ -182,11 +181,14 @@ function mousePressed() {
     for (i = 0; i < bubbleNum; i++) {
       bubbles[i].clicked();
     }
+  } else {
+    whistle.play();
+    whistle.setVolume(0.01);
   }
 }
 
 function gaze() {
-  animation(sequenceAnimation, window.innerWidth / 2, window.innerHeight / 2-30, (window.innerHeight-100)* 730 / 1712, window.innerHeight-100); 
+  animation(sequenceAnimation, window.innerWidth / 2, window.innerHeight / 2 - 30, w, h); 
   sequenceAnimation.looping = false;
   sequenceAnimation.frameDelay = 6;
   gifControl();
@@ -197,7 +199,7 @@ function gaze() {
   trace.line(xprediction,yprediction,xprediction,yprediction);
 
   imageMode(CENTER);
-  image(instructionImg,window.innerWidth / 2,window.innerHeight / 2-30+(window.innerHeight-100)/2,794,80);
+  image(instructionImg, window.innerWidth / 2, (window.innerHeight + h) / 2 - 30, 794, 80);
   
   var target = createVector(this.xprediction, this.yprediction);
   for (i = 0; i < eyeNum; i++) {

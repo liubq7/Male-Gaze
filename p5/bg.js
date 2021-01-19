@@ -14,7 +14,6 @@ var sentences = [
 var interval;
 var loopLength;
 
-
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
 
@@ -68,7 +67,7 @@ function Stream() {
 
   this.render = function () {
     this.comments.forEach(function (comment) {
-      switch(comment.col) {
+      switch (comment.col) {
         case 0:
           fill(134, 50, 50, comment.opacity);
           break;
@@ -87,7 +86,6 @@ function Stream() {
     });
   };
 }
-
 
 function draw() {
   background(254, 242, 220, 400);
