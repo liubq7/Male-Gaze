@@ -12,8 +12,8 @@ var sequenceAnimation;
 var whisper;
 var whistle;
 
-var w;  // width of animation
-var h;  // height of animation
+var w; // width of animation
+var h; // height of animation
 
 var xprediction;
 var yprediction;
@@ -22,15 +22,16 @@ var bubbles = [];
 var bubbleNum = 7;
 var bubbleLeft;
 
-
 function preload() {
   eyeImg = loadImage("../assets/maleview/eye.gif");
   instructionImg = loadImage("../assets/maleview/eye_instruction.png");
   whisper = loadSound("../assets/maleview/whisper.mp3");
   whistle = loadSound("../assets/maleview/whistle.wav");
-  sequenceAnimation = loadAnimation("../assets/maleview/frames/1.png", "../assets/maleview/frames/36.png");
+  sequenceAnimation = loadAnimation(
+    "../assets/maleview/frames/1.png",
+    "../assets/maleview/frames/36.png"
+  );
 }
-
 
 function setup() {
   frameRate(15);
@@ -45,14 +46,16 @@ function setup() {
   // }
   // webgazer.begin();
   // window.saveDataAcrossSessions = true;
-  webgazer.setGazeListener(function(data, elapsedTime) {
-    if (data == null) {
+  webgazer
+    .setGazeListener(function (data, elapsedTime) {
+      if (data == null) {
         return;
-    }
-    xprediction = data.x; //these x coordinates are relative to the viewport
-    yprediction = data.y; //these y coordinates are relative to the viewport
-}).begin();
- 
+      }
+      xprediction = data.x; //these x coordinates are relative to the viewport
+      yprediction = data.y; //these y coordinates are relative to the viewport
+    })
+    .begin();
+
   createCanvas(window.innerWidth, window.innerHeight);
   colorMode(RGB, 255, 255, 255, 1);
 
@@ -66,10 +69,10 @@ function setup() {
     eyes[i] = new Eye(x, y);
   }
 
-  trace = createGraphics(window.innerWidth, window.innerHeight); 
+  trace = createGraphics(window.innerWidth, window.innerHeight);
 
-  w = (window.innerHeight-100)* 730 / 1712;
-  h = window.innerHeight-100;
+  w = ((window.innerHeight - 100) * 730) / 1712;
+  h = window.innerHeight - 100;
 
   bubbles[0] = new Bubble(770, height - 100);
   bubbles[1] = new Bubble(200, 400);
@@ -113,7 +116,6 @@ function Eye(x, y) {
     var steering = p5.Vector.sub(desired, this.vel);
     steering.limit(this.maxForce);
     this.applyForce(steering);
-    // console.log(target);
   };
 
   // Handle Updates
@@ -134,13 +136,17 @@ function Eye(x, y) {
 }
 
 function gifControl() {
-  if (mouseX > (window.innerWidth - w) / 2 && mouseX < (window.innerWidth + w) / 2 && mouseY > (window.innerHeight - h) / 2 - 30 && mouseY < (window.innerHeight + h) / 2 - 30) {
+  if (
+    mouseX > (window.innerWidth - w) / 2 &&
+    mouseX < (window.innerWidth + w) / 2 &&
+    mouseY > (window.innerHeight - h) / 2 - 30 &&
+    mouseY < (window.innerHeight + h) / 2 - 30
+  ) {
     sequenceAnimation.play();
   } else {
     sequenceAnimation.stop();
   }
 }
-
 
 function draw() {
   clear();
@@ -161,19 +167,19 @@ function Bubble(x, y) {
   this.y = y;
   this.d = 30;
 
-  this.display = function() {
+  this.display = function () {
     fill(this.col);
     noStroke();
     ellipse(x, y, this.d, this.d);
-  }
+  };
 
-  this.clicked = function() {
+  this.clicked = function () {
     var distance = dist(mouseX, mouseY, x, y);
     if (distance < this.d / 2) {
       this.d = 0;
       bubbleLeft -= 1;
     }
-  }
+  };
 }
 
 function mousePressed() {
@@ -188,19 +194,31 @@ function mousePressed() {
 }
 
 function gaze() {
-  animation(sequenceAnimation, window.innerWidth / 2, window.innerHeight / 2 - 30, w, h); 
+  animation(
+    sequenceAnimation,
+    window.innerWidth / 2,
+    window.innerHeight / 2 - 30,
+    w,
+    h
+  );
   sequenceAnimation.looping = false;
   sequenceAnimation.frameDelay = 6;
   gifControl();
-  
+
   image(trace, 0, 0);
   trace.stroke(255, 39, 143, 80);
   trace.strokeWeight(12);
-  trace.line(xprediction,yprediction,xprediction,yprediction);
+  trace.line(xprediction, yprediction, xprediction, yprediction);
 
   imageMode(CENTER);
-  image(instructionImg, window.innerWidth / 2, (window.innerHeight + h) / 2 - 30, 794, 80);
-  
+  image(
+    instructionImg,
+    window.innerWidth / 2,
+    (window.innerHeight + h) / 2 - 30,
+    794,
+    80
+  );
+
   var target = createVector(this.xprediction, this.yprediction);
   for (i = 0; i < eyeNum; i++) {
     eyes[i].seek(target);
@@ -208,4 +226,3 @@ function gaze() {
     eyes[i].update();
   }
 }
-
