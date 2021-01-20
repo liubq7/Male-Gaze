@@ -1,6 +1,6 @@
 var mode = localStorage.getItem("mode");
 if (mode === "gaze") {
-  $("#iframe2").attr("src", "./p5/gaze.html");
+  $("#iframe2").attr("src", "https://editor.p5js.org/liubq7/embed/p2snQnFVi");
 
   introJs()
     .setOptions({
