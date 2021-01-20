@@ -137,10 +137,10 @@ function Eye(x, y) {
 
 function gifControl() {
   if (
-    mouseX > (window.innerWidth - w) / 2 &&
-    mouseX < (window.innerWidth + w) / 2 &&
-    mouseY > (window.innerHeight - h) / 2 - 30 &&
-    mouseY < (window.innerHeight + h) / 2 - 30
+    xprediction > (window.innerWidth - w) / 2 &&
+    xprediction < (window.innerWidth + w) / 2 &&
+    yprediction > (window.innerHeight - h) / 2 - 30 &&
+    yprediction < (window.innerHeight + h) / 2 - 30
   ) {
     sequenceAnimation.play();
   } else {
