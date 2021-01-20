@@ -16,8 +16,8 @@ var w; // width of animation
 var h; // height of animation
 
 function preload() {
-  eyeImg = loadImage("../assets/maleview/eye.gif");
-  instructionImg = loadImage("../assets/maleview/instruction.png");
+  eyeImg = loadImage("https://raw.githubusercontent.com/liubq7/Male-Gaze/master/assets/maleview/eye.gif");
+  instructionImg = loadImage("https://raw.githubusercontent.com/liubq7/Male-Gaze/master/assets/maleview/Instruction.png");
   whisper = loadSound("../assets/maleview/whisper.mp3");
   whistle = loadSound("../assets/maleview/whistle.wav");
   sequenceAnimation = loadAnimation(
