@@ -7,5 +7,5 @@ Try it [here](https://liubq7.github.io/Male-Gaze/)!
 For more details, please see [design process](https://github.com/liubq7/Male-Gaze/blob/master/Design_Process.pdf) and [essay](https://github.com/liubq7/Male-Gaze/blob/master/Essay.pdf).  
 
 <center class="half">
-    <img src="assets/readme/1.gif" width=48% style="padding-right:5px"/><img src="assets/readme/2.gif" width=48% style="padding-left:5px"/>
+    <img src="assets/readme/1.gif" width=45% style="padding-right:5px"/><img src="assets/readme/2.gif" width=45% style="padding-left:5px"/>
 </center>
