@@ -6,6 +6,8 @@ The male gaze is a concept coming from the film industry that elaborates how wom
 Try it [here](https://liubq7.github.io/Male-Gaze/)!  
 For more details, please see [design process](https://github.com/liubq7/Male-Gaze/blob/master/Design_Process.pdf) and [essay](https://github.com/liubq7/Male-Gaze/blob/master/Essay.pdf).  
 
-<center class="half">
-    <img src="assets/readme/1.gif" width=45% /><img src="assets/readme/2.gif" width=45%/>
-</center>
+<!-- <center>
+    <img src="assets/readme/1.gif" width=45%/><img src="assets/readme/2.gif" width=45%/>
+</center> -->
+<img align="left" width=43% src="assets/readme/1.gif"/>
+<img align="left" width=43% src="assets/readme/2.gif"/>
